@@ -32,15 +32,15 @@ io.on('connection', (socket) => {
 
   if (product) {
     // Put every socket into a room named after its product
-    socket.join(product);
-    console.log(`➡️ ${socket.id} joined room: ${product}`);
+    socket.join(product.name);
+    console.log(`➡️ ${socket.id} joined room: ${product.name}`);
   }
 
   if (role === 'pedestal') {
     socket.on('rotation', (data) => {
       // console.log('motion from', product, data);
       // Send only to displays in the same product room
-      socket.to(product).emit('rotation', data);
+      socket.to(product.name).emit('rotation', data);
     });
   }
 
