@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js --watch index.js",
-    "serve": "node index"
+    "serve": "node index",
+    "serve:https": "npm run start & npm run tunnel",
+    "tunnel": "ngrok http --url=caolatree-products-backend.ngrok.app 8000"
   },
   "type": "module",
   "author": "",
